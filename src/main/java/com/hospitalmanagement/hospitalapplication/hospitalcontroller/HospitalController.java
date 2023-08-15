@@ -17,42 +17,24 @@ public class HospitalController {
     HospitalService hospitalService;
 
 
-
-
     @GetMapping("hospital/patients")
+    public List<Pateint> getPatients() {
 
-    public List<Pateint> getPatients () {
-
-        return  hospitalService.getPatientsInfo();
+        return hospitalService.getPatientsInfo();
     }
 
     @GetMapping("hospital/getdoctors")
 
-    public List<Doctors> getDoctor () {
+    public List<Doctors> getDoctor() {
 
-        return  hospitalService.getDoctorsInfo();
+        return hospitalService.getDoctorsInfo();
     }
-
-   // @PostMapping("hospital/addpatients")
-
-    //public List<Pateint> addPatients(@RequestBody Pateint pateint) {
-
-      //  return hospitalService.enrollPateint(pateint);
-
 
     @GetMapping("hospital/getDoctorsDetails")
 
     public DoctorsDetails getDoctorDetails(@RequestParam("doctor") String doctorName) {
 
-        return  hospitalService.getDoctorsDetailsInfo(doctorName);
+        return hospitalService.getDoctorsDetailsInfo(doctorName);
     }
 
-//        @GetMapping("hospital/getdoctorsDetails/doctor")
-//        public List<DoctorsDetails> getDoctorDetails(@RequestParam  String doctorName) {
-//
-//            return  hospitalService.getDoctorsDetailsInf(doctorName);
-//        }
-
-
-
-    }
+}

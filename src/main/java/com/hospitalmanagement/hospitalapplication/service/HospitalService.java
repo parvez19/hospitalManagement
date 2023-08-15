@@ -9,7 +9,6 @@
  import lombok.extern.slf4j.Slf4j;
  import org.springframework.beans.factory.annotation.Autowired;
  import org.springframework.stereotype.Service;
- import org.springframework.web.bind.annotation.RequestParam;
 
  import java.util.List;
 
@@ -55,22 +54,4 @@ public class HospitalService {
          }
          return null;
      }
-
-
-
-
-
-
-
-//     public List<DoctorsDetails> getDoctorsDetailsInf (@RequestParam String doctorName) {
-//
-//         List<DoctorsDetails> doctorsResult = (List<DoctorsDetails>) new DoctorsDetails();
-//
-//         doctorsResult.stream().filter(e -> "dr.jaweed".equals(e.getDoctorName())).collect(Collectors.toList());
-/////         for (DoctorsDetails DoctorsDetails : doctorsResult ) {
-/////             if ("dr.jaweed".equals(DoctorsDetails.getDoctorName()));
-/////         }
-//         return (List<DoctorsDetails>) doctorDetailsRepo.findById(doctorName).get();
-//
-//     }
  }
