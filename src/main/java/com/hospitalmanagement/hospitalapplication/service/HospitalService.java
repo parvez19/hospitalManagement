@@ -11,47 +11,25 @@
  import org.springframework.stereotype.Service;
  import org.springframework.web.bind.annotation.RequestParam;
 
- import java.util.ArrayList;
  import java.util.List;
- import java.util.stream.Collectors;
 
  @Service
  @Slf4j
 public class HospitalService {
-
      @Autowired
      HospitalRepo hospitalRepo;
-
      @Autowired
      DoctorRepo doctorRepo;
-
      @Autowired
      DoctorDetailsRepo doctorDetailsRepo;
-
-
      public List<Pateint> getPatientsInfo() {
-
          List<Pateint> patients = hospitalRepo.findAll();
-
          return patients;
-
      }
 
      public List<Doctors> getDoctorsInfo() {
-
-         List<Doctors> doctorsList = new ArrayList<>();
-
-         List<Doctors> finalDoctors = doctorsList.stream().filter(e -> "dr.jaweed".equals(e.getDoctorName()) && "dentist" == e.getSpecialization()).collect(Collectors.toList());
-
-
-         return  doctorRepo.findAll();
-
-
+         return doctorRepo.findAll();
      }
-
-
-
-
 
 
      public String enrollPateint(Pateint pateint) {
@@ -65,19 +43,34 @@ public class HospitalService {
          return "added successfully";
      }
 
-     public List<DoctorsDetails> getDoctorsDetails(@RequestParam String name) {
 
-         List<DoctorsDetails> doctorsDetailsResult = new ArrayList<>();
+     public DoctorsDetails getDoctorsDetailsInfo(String name) {
 
-         List<DoctorsDetails> FinalList =  doctorsDetailsResult.stream().filter(e-> "dr.jaweed".equals(e.getDoctorName())).collect(Collectors.toList());
-          doctorDetailsRepo.findById(name);
+         List<DoctorsDetails> DoctorList = doctorDetailsRepo.findAll();
+         for (DoctorsDetails doctor : DoctorList) {
+             if (name.equals(doctor.getDoctorName())) {
+                 return doctor;
+             }
 
-          return FinalList;
+         }
+         return null;
      }
- }
 
-//     public Optional<Doctors> getDoctorsName(String name) {
+
+
+
+
+
+
+//     public List<DoctorsDetails> getDoctorsDetailsInf (@RequestParam String doctorName) {
 //
-//         return doctorRepo.findByName(name);
+//         List<DoctorsDetails> doctorsResult = (List<DoctorsDetails>) new DoctorsDetails();
+//
+//         doctorsResult.stream().filter(e -> "dr.jaweed".equals(e.getDoctorName())).collect(Collectors.toList());
+/////         for (DoctorsDetails DoctorsDetails : doctorsResult ) {
+/////             if ("dr.jaweed".equals(DoctorsDetails.getDoctorName()));
+/////         }
+//         return (List<DoctorsDetails>) doctorDetailsRepo.findById(doctorName).get();
+//
 //     }
-// }
+ }

@@ -40,12 +40,18 @@ public class HospitalController {
       //  return hospitalService.enrollPateint(pateint);
 
 
-        @GetMapping("hospital/getdoctorsDetails")
+    @GetMapping("hospital/getDoctorsDetails")
 
-        public List<DoctorsDetails> getDoctorDetails(@RequestParam  String name) {
+    public DoctorsDetails getDoctorDetails(@RequestParam("doctor") String doctorName) {
 
-            return  hospitalService.getDoctorsDetails(name);
-        }
+        return  hospitalService.getDoctorsDetailsInfo(doctorName);
+    }
+
+//        @GetMapping("hospital/getdoctorsDetails/doctor")
+//        public List<DoctorsDetails> getDoctorDetails(@RequestParam  String doctorName) {
+//
+//            return  hospitalService.getDoctorsDetailsInf(doctorName);
+//        }
 
 
 
