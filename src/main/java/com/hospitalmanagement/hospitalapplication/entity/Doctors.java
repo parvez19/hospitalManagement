@@ -17,7 +17,7 @@ public class Doctors {
     @GeneratedValue
     private String doctorName;
     private String specialization;
-    private String Days;
+    private String days;
     private String address;
 
 }

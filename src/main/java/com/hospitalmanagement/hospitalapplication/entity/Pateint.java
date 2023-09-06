@@ -16,5 +16,4 @@ public class Pateint {
     private String address;
     private int age;
     private String sex;
-    private String illness;
 }
